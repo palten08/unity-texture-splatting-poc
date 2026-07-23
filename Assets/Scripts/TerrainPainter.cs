@@ -27,6 +27,7 @@ public class TerrainPainter : MonoBehaviour
     Vector2 _terrainSize;
     int _cursorProjectionDepth = 1500;
     Vector3 _cursorSize;
+    float paintValue = 0.0f;
 
     void Start()
     {
@@ -60,7 +61,7 @@ public class TerrainPainter : MonoBehaviour
 
         _cursorSize = new Vector3(paintBrushSize, paintBrushSize, _cursorProjectionDepth);
 
-        paintBrushCursor.enabled = false;
+        paintBrushCursor.drawDistance = 0.0f;
 
         TerrainPaintStateMachine.TerrainPaintStateChangedEvent += OnTerrainPaintStateChange;
     }
@@ -94,6 +95,7 @@ public class TerrainPainter : MonoBehaviour
                 paintBrushMaterial.SetVector("_Brush_Coordinates", raycastTexelCoordinates);
 
                 paintBrushMaterial.SetFloat("_Strength", paintStrength);
+                paintBrushMaterial.SetFloat("_Paint_Value", paintValue);
 
                 RenderTexture temporaryRT = RenderTexture.GetTemporary(terrainSplatMaskRenderTexture.width, terrainSplatMaskRenderTexture.height, 0, terrainSplatMaskRenderTexture.format);
 
@@ -109,17 +111,46 @@ public class TerrainPainter : MonoBehaviour
 
     void OnTerrainPaintStateChange(TerrainPaintStateMachine paintModeStateMachine)
     {
-        if (paintModeStateMachine.terrainPaintState == TerrainPaintState.Paint && !paintBrushCursor.enabled)
+        if (paintModeStateMachine.terrainPaintState == TerrainPaintState.Paint)
         {
-            paintBrushCursor.enabled = true;
+            paintBrushCursor.drawDistance = 1000.0f;
         } else
         {
-            paintBrushCursor.enabled = false;
+            paintBrushCursor.drawDistance = 0.0f;
         }
+    }
+
+    public void SetBrushSize(float targetSize)
+    {
+        paintBrushSize = targetSize;
+    }
+
+    public void SetPaintStrength(float targetStrength)
+    {
+        paintStrength = targetStrength / 1000;
+    }
+
+    public void SetPaintValue(float targetValue)
+    {
+        paintValue = targetValue;
     }
 
     void Update()
     {
+        if (TerrainPaintStateMachine.instance.terrainPaintState != TerrainPaintState.Paint)
+        {
+            return;
+        }
+        if (uiEventSystem.IsPointerOverGameObject())
+        {
+            return;
+        }
+
+        if (paintAction.IsPressed())
+        {
+            AttemptPaint();
+        }
+
         if (_cursorSize.x != paintBrushSize || _cursorSize.y != paintBrushSize)
         {
             _cursorSize.x = paintBrushSize;
@@ -139,20 +170,6 @@ public class TerrainPainter : MonoBehaviour
 
             paintBrushCursor.size = _cursorSize;
             }
-        }
-        
-        if (TerrainPaintStateMachine.instance.terrainPaintState != TerrainPaintState.Paint)
-        {
-            return;
-        }
-        if (uiEventSystem.IsPointerOverGameObject())
-        {
-            return;
-        }
-
-        if (paintAction.IsPressed())
-        {
-            AttemptPaint();
         }
     }
 }

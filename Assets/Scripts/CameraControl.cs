@@ -62,7 +62,7 @@ public class CameraControl : MonoBehaviour
             pivotPointTransform.localEulerAngles = currentpivotPointTransformEulerAngles;
         }
 
-        // Zoom just the camera along its forward vector towards / from the pivot point
+        // Zoom just the camera along its forward vector towards / from the pivot point 
         if (Mathf.Abs(zoomCameraAction.ReadValue<Vector2>().y) > 0.001f)
         {
             Vector3 targetZoomPosition = Vector3.MoveTowards(cameraTransform.position, pivotPointTransform.position, zoomCameraAction.ReadValue<Vector2>().y * zoomSpeed * Time.deltaTime);
