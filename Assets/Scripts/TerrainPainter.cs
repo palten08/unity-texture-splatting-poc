@@ -22,8 +22,6 @@ public class TerrainPainter : MonoBehaviour
     [SerializeField] Material paintBrushMaterial;
     [SerializeField] float paintBrushSize = 0.5f;
 
-    bool _isPainting = false;
-
     void Start()
     {
         uiActionMap = InputSystem.actions.FindActionMap("UI", true);
@@ -94,58 +92,3 @@ public class TerrainPainter : MonoBehaviour
         }
     }
 }
-        /*
-        shouldPaint = paintAction.WasPerformedThisFrame() && paintAction.IsPressed() && !uiEventSystem.IsPointerOverGameObject();
-        Ray rayFromScreenPoint = camera.ScreenPointToRay(uiPointAction.ReadValue<Vector2>());
-        RaycastHit raycastHit;
-        if (Physics.Raycast(rayFromScreenPoint.origin, rayFromScreenPoint.direction, out raycastHit, Mathf.Infinity, layerMask))
-        {
-            if (!brushDecal.enabled)
-            {
-               brushDecal.enabled = true; 
-            }
-            Vector3 brushDecalPosition = brushDecal.transform.position;
-            brushDecalPosition.x = raycastHit.point.x;
-            brushDecalPosition.z = raycastHit.point.z;
-            brushDecal.transform.position = brushDecalPosition;
-            Debug.DrawRay(rayFromScreenPoint.origin, rayFromScreenPoint.direction * 1000, Color.yellowNice);
-            Debug.DrawLine(raycastHit.point, Vector3.up * 50, Color.aliceBlue);
-        } else
-        {
-            brushDecal.enabled = false;
-        }
-        if (drawDebugRay)
-        {
-            Debug.DrawRay(lastRaycast.origin, lastRaycast.direction * 1000, Color.yellowNice);
-        }
-        */
-
-
-    // void FixedUpdate()
-    // {
-    //     if (shouldPaint)
-    //     {
-    //         Debug.Log("Beans");
-    //         Ray rayFromScreenPoint = camera.ScreenPointToRay(uiPointAction.ReadValue<Vector2>());
-    //         lastRaycast = rayFromScreenPoint;
-    //         RaycastHit raycastHit;
-    //         if (Physics.Raycast(rayFromScreenPoint.origin, rayFromScreenPoint.direction, out raycastHit, Mathf.Infinity, layerMask))
-    //         {
-    //             if (LayerMask.LayerToName(raycastHit.collider.gameObject.layer) == "Terrain") {
-    //                 Vector2 pixelUV = raycastHit.textureCoord;
-    //                 paintBrushMaterial.SetVector("Brush Coordinates", pixelUV);
-
-    //                 RenderTexture temporaryRenderTexture = RenderTexture.GetTemporary(terrainSplatMaskRenderTexture.width, terrainSplatMaskRenderTexture.height, 0, terrainSplatMaskRenderTexture.format);
-
-    //                 paintBrushMaterial.SetTexture("Target Texture", temporaryRenderTexture);
-
-    //                 Graphics.Blit(terrainSplatMaskRenderTexture, temporaryRenderTexture, paintBrushMaterial);
-
-    //                 Graphics.Blit(temporaryRenderTexture, terrainSplatMaskRenderTexture);
-
-    //                 RenderTexture.ReleaseTemporary(temporaryRenderTexture);
-    //             }
-    //         }
-    //     }
-    // }
-
