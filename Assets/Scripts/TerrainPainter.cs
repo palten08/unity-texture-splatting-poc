@@ -21,6 +21,7 @@ public class TerrainPainter : MonoBehaviour
     [SerializeField] Texture2D brushTexture;
     [SerializeField] Material paintBrushMaterial;
     [SerializeField] float paintBrushSize = 0.5f;
+    [SerializeField] float paintStrength = 0.10f;
 
     void Start()
     {
@@ -46,6 +47,15 @@ public class TerrainPainter : MonoBehaviour
 
     void OnPaintEvent(InputAction.CallbackContext inputSystemCallbackContext)
     {
+        if (TerrainPaintStateMachine.instance.terrainPaintState != TerrainPaintState.Paint)
+        {
+            return;
+        }
+        if (uiEventSystem.IsPointerOverGameObject())
+        {
+            return;
+        }
+        
         AttemptPaint();
     }
 
@@ -62,6 +72,8 @@ public class TerrainPainter : MonoBehaviour
                 paintBrushMaterial.SetFloat("_Brush_Size", paintBrushSize);
 
                 paintBrushMaterial.SetVector("_Brush_Coordinates", raycastTexelCoordinates);
+
+                paintBrushMaterial.SetFloat("_Strength", paintStrength);
 
                 RenderTexture temporaryRT = RenderTexture.GetTemporary(terrainSplatMaskRenderTexture.width, terrainSplatMaskRenderTexture.height, 0, terrainSplatMaskRenderTexture.format);
 

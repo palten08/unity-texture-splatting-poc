@@ -558,7 +558,7 @@ Light:
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
-  m_ColorTemperature: 5000
+  m_ColorTemperature: 4523
   m_UseColorTemperature: 1
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
@@ -601,7 +601,7 @@ MonoBehaviour:
   m_CustomShadowLayers: 0
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
-  m_SoftShadowQuality: 1
+  m_SoftShadowQuality: 3
   m_RenderingLayersMask:
     serializedVersion: 0
     m_Bits: 1
@@ -3584,6 +3584,7 @@ MonoBehaviour:
   brushTexture: {fileID: 2800000, guid: 02b683c03961b7b40b8f0ea0d4a1600e, type: 3}
   paintBrushMaterial: {fileID: 2100000, guid: 808053e26071f884890aa7dad51a7333, type: 2}
   paintBrushSize: 0.03
+  paintStrength: 0.02
 --- !u!1 &2008438576
 GameObject:
   m_ObjectHideFlags: 0
