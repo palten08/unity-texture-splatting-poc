@@ -12,7 +12,7 @@ public class TerrainPaintStateMachine : MonoBehaviour
     public static TerrainPaintStateMachine instance { get {return _instance; } }
     public TerrainPaintState terrainPaintState = TerrainPaintState.Overview;
 
-    public static event Action<TerrainPaintStateMachine> OnTerrainPaintStateChangedEvent;
+    public static event Action<TerrainPaintStateMachine> TerrainPaintStateChangedEvent;
 
     private void Awake()
     {
@@ -32,6 +32,6 @@ public class TerrainPaintStateMachine : MonoBehaviour
         }
 
         terrainPaintState = targetState;
-        OnTerrainPaintStateChangedEvent(this);
+        TerrainPaintStateChangedEvent(this);
     }
 }

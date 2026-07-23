@@ -19,7 +19,7 @@ public class UIPanel : MonoBehaviour
         {
             canvasComponent.enabled = false;
         }
-        TerrainPaintStateMachine.OnTerrainPaintStateChangedEvent += ShouldShowPanel;        
+        TerrainPaintStateMachine.TerrainPaintStateChangedEvent += ShouldShowPanel;
     }
 
     private void ShouldShowPanel(TerrainPaintStateMachine paintModeStateMachine)

@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
@@ -58,6 +59,10 @@ public class TerrainPainter : MonoBehaviour
         RenderTexture.active = temporaryRenderTexture;
 
         _cursorSize = new Vector3(paintBrushSize, paintBrushSize, _cursorProjectionDepth);
+
+        paintBrushCursor.enabled = false;
+
+        TerrainPaintStateMachine.TerrainPaintStateChangedEvent += OnTerrainPaintStateChange;
     }
 
     void OnPaintEvent(InputAction.CallbackContext inputSystemCallbackContext)
@@ -102,24 +107,19 @@ public class TerrainPainter : MonoBehaviour
         }
     }
 
+    void OnTerrainPaintStateChange(TerrainPaintStateMachine paintModeStateMachine)
+    {
+        if (paintModeStateMachine.terrainPaintState == TerrainPaintState.Paint && !paintBrushCursor.enabled)
+        {
+            paintBrushCursor.enabled = true;
+        } else
+        {
+            paintBrushCursor.enabled = false;
+        }
+    }
+
     void Update()
     {
-        if (TerrainPaintStateMachine.instance.terrainPaintState != TerrainPaintState.Paint)
-        {
-            return;
-        }
-        if (uiEventSystem.IsPointerOverGameObject())
-        {
-            return;
-        }
-
-        if (paintAction.IsPressed())
-        {
-            AttemptPaint();
-        }
-
-        //Vector3 _cursorSize = new Vector3(paintBrushSize, paintBrushSize, _cursorProjectionDepth);
-
         if (_cursorSize.x != paintBrushSize || _cursorSize.y != paintBrushSize)
         {
             _cursorSize.x = paintBrushSize;
@@ -139,6 +139,20 @@ public class TerrainPainter : MonoBehaviour
 
             paintBrushCursor.size = _cursorSize;
             }
+        }
+        
+        if (TerrainPaintStateMachine.instance.terrainPaintState != TerrainPaintState.Paint)
+        {
+            return;
+        }
+        if (uiEventSystem.IsPointerOverGameObject())
+        {
+            return;
+        }
+
+        if (paintAction.IsPressed())
+        {
+            AttemptPaint();
         }
     }
 }
