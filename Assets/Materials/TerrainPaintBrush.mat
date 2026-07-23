@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-4914950190343033842
+--- !u!114 &-636980308104118378
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20,8 +20,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: SplatTerrain
-  m_Shader: {fileID: -6465566751694194690, guid: c1b01be5a58e0294aba39c6fb85387be, type: 3}
+  m_Name: TerrainPaintBrush
+  m_Shader: {fileID: -6465566751694194690, guid: 827fc0c532ed5b040b40b777ebd9c24c, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -33,28 +33,20 @@ Material:
   stringTagMap: {}
   disabledShaderPasses:
   - MOTIONVECTORS
-  m_LockedProperties: _Steps_02
+  m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - _AO_Map_01:
-        m_Texture: {fileID: 2800000, guid: b3e8936248f5d644fa9d101e51fdb600, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _AO_Map_02:
-        m_Texture: {fileID: 2800000, guid: 9a9e6ec7dcaaf2345ae6aa70ebb97fb9, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - _BaseMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _Base_Map_01:
-        m_Texture: {fileID: 2800000, guid: 499fca6b5ccee3640bcdf23df7618bf7, type: 3}
+    - _BrushTex:
+        m_Texture: {fileID: 2800000, guid: ba4350761ff0d4a42a5ef3b03b3822ec, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _Base_Map_02:
-        m_Texture: {fileID: 2800000, guid: a7c6ab57a97845143b319f29d298c388, type: 3}
+    - _Brush_Texture:
+        m_Texture: {fileID: 2800000, guid: 02b683c03961b7b40b8f0ea0d4a1600e, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
@@ -73,14 +65,6 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _Displacement_Map_01:
-        m_Texture: {fileID: 2800000, guid: bd2f5cb038c19a542a78911e180eb325, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _Displacement_Map_02:
-        m_Texture: {fileID: 2800000, guid: 1c78ad1a2ec357b46a7abcbb793417d4, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - _EmissionMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -93,22 +77,6 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _Metallic_Map_01:
-        m_Texture: {fileID: 2800000, guid: 9318b4d54ca06ee4f9da720703234d6a, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _Metallic_Map_02:
-        m_Texture: {fileID: 2800000, guid: 255d5513cb25f93419db2cae4c60e637, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _Normal_Map_01:
-        m_Texture: {fileID: 2800000, guid: cf06283bcd30aab4a9605dffd604392c, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _Normal_Map_02:
-        m_Texture: {fileID: 2800000, guid: faf9626e08b0d824388d0a325c57152e, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -117,20 +85,20 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _Roughness_Map_01:
-        m_Texture: {fileID: 2800000, guid: de81b2357fbe554498578c0cdc748233, type: 3}
+    - _SampleTexture2D_189173c727dc47c68b6e39745c5e6438_Texture_1_Texture2D:
+        m_Texture: {fileID: 2800000, guid: 02b683c03961b7b40b8f0ea0d4a1600e, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _Roughness_Map_02:
-        m_Texture: {fileID: 2800000, guid: 1005709527fd83642a68a45619b621e8, type: 3}
+    - _SampleTexture2D_6b85389746ff444f888c9ee41aea580f_Texture_1_Texture2D:
+        m_Texture: {fileID: 8400000, guid: 7277cb6d6534f8a46ab0f28534df0e6e, type: 2}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SpecGlossMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _Splat_Map:
-        m_Texture: {fileID: 8400000, guid: 7277cb6d6534f8a46ab0f28534df0e6e, type: 2}
+    - _Target_Texture:
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -150,10 +118,9 @@ Material:
     - _AddPrecomputedVelocity: 0
     - _AlphaClip: 0
     - _AlphaToMask: 0
-    - _Amplitude_01: 1
-    - _Amplitude_02: 1
     - _Blend: 0
     - _BlendModePreserveSpecular: 1
+    - _Brush_Size: 0.03
     - _BumpScale: 1
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
@@ -161,16 +128,12 @@ Material:
     - _Cutoff: 0.5
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
-    - _Displacement_Strength_01: 2
-    - _Displacement_Strength_02: 2
     - _DstBlend: 0
     - _DstBlendAlpha: 0
     - _EnvironmentReflections: 1
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _Invert_Displacement_01: 0
-    - _Invert_Displacement_02: 0
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.005
@@ -184,18 +147,16 @@ Material:
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _SrcBlendAlpha: 1
-    - _Steps_01: 1
-    - _Steps_02: 1
     - _Surface: 0
     - _WorkflowMode: 1
     - _XRMotionVectorsPass: 1
     - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
+    - _BrushCoords: {r: 0.16787136, g: 0.4853518, b: 0.05, a: 0}
+    - _Brush_Coordinates: {r: 0.5094063, g: 0.08236518, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
-    - _Tiling_01: {r: 15, g: 15, b: 0, a: 0}
-    - _Tiling_02: {r: 15, g: 15, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
