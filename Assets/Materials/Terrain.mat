@@ -20,8 +20,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: SplatTerrain
-  m_Shader: {fileID: -6465566751694194690, guid: c1b01be5a58e0294aba39c6fb85387be, type: 3}
+  m_Name: Terrain
+  m_Shader: {fileID: -6465566751694194690, guid: 910e4a0f4fe8f0c43880ea60cbbfcfca, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -57,6 +57,14 @@ Material:
         m_Texture: {fileID: 2800000, guid: a7c6ab57a97845143b319f29d298c388, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _Base_Map_A:
+        m_Texture: {fileID: 2800000, guid: 499fca6b5ccee3640bcdf23df7618bf7, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Base_Map_B:
+        m_Texture: {fileID: 2800000, guid: a7c6ab57a97845143b319f29d298c388, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _BumpMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -78,6 +86,14 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Displacement_Map_02:
+        m_Texture: {fileID: 2800000, guid: 1c78ad1a2ec357b46a7abcbb793417d4, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Displacement_Map_A:
+        m_Texture: {fileID: 2800000, guid: bd2f5cb038c19a542a78911e180eb325, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Displacement_Map_B:
         m_Texture: {fileID: 2800000, guid: 1c78ad1a2ec357b46a7abcbb793417d4, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -109,8 +125,24 @@ Material:
         m_Texture: {fileID: 2800000, guid: faf9626e08b0d824388d0a325c57152e, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _Normal_Map_A:
+        m_Texture: {fileID: 2800000, guid: cf06283bcd30aab4a9605dffd604392c, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Normal_Map_B:
+        m_Texture: {fileID: 2800000, guid: faf9626e08b0d824388d0a325c57152e, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
         m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _PBR_Map_A:
+        m_Texture: {fileID: 2800000, guid: 27d39a7b7e59455459c72e9c92b47003, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _PBR_Map_B:
+        m_Texture: {fileID: 2800000, guid: 9186c4729cb5ce545a4c8d4ad2a2183b, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ParallaxMap:
@@ -125,12 +157,28 @@ Material:
         m_Texture: {fileID: 2800000, guid: 1005709527fd83642a68a45619b621e8, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_6c1170cd23c242dea4aa673ec8d45012_Texture_1_Texture2D:
+        m_Texture: {fileID: 2800000, guid: 499fca6b5ccee3640bcdf23df7618bf7, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_9099feaf767445b7aaa3a9d9a9d6755c_Texture_1_Texture2D:
+        m_Texture: {fileID: 2800000, guid: 27d39a7b7e59455459c72e9c92b47003, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_f0b66c4c690445ed8e98072362a6ea7d_Texture_1_Texture2D:
+        m_Texture: {fileID: 2800000, guid: cf06283bcd30aab4a9605dffd604392c, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _SpecGlossMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Splat_Map:
         m_Texture: {fileID: 8400000, guid: 7277cb6d6534f8a46ab0f28534df0e6e, type: 2}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture_A:
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -161,6 +209,7 @@ Material:
     - _Cutoff: 0.5
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
+    - _Displacement_Influence: 1
     - _Displacement_Strength_01: 2
     - _Displacement_Strength_02: 2
     - _DstBlend: 0
@@ -171,8 +220,16 @@ Material:
     - _GlossyReflections: 0
     - _Invert_Displacement_01: 0
     - _Invert_Displacement_02: 0
+    - _Invert_Roughness_A: 1
+    - _Invert_Roughness_B: 1
     - _Metallic: 0
     - _OcclusionStrength: 1
+    - _POM_Amplitude_A: 2
+    - _POM_Amplitude_B: 2
+    - _POM_Aplitude_A: 2
+    - _POM_Aplitude_B: 2
+    - _POM_Steps_A: 8
+    - _POM_Steps_B: 8
     - _Parallax: 0.005
     - _QueueControl: 0
     - _QueueOffset: 0
@@ -194,8 +251,13 @@ Material:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _Offset_A: {r: 0, g: 0, b: 0, a: 0}
+    - _Offset_B: {r: 0, g: 0, b: 0, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
     - _Tiling_01: {r: 15, g: 15, b: 0, a: 0}
     - _Tiling_02: {r: 15, g: 15, b: 0, a: 0}
+    - _Tiling_A: {r: 15, g: 15, b: 0, a: 0}
+    - _Tiling_B: {r: 15, g: 15, b: 0, a: 0}
+    - _Transition_Width: {r: 0.41, g: 0.51, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
